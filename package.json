@@ -6,7 +6,7 @@
   "scripts": {
     "env-copy": "node ./env-copy.js",
     "dev": "cross-env APP_ENV=development npm run env-copy && cross-env APP_ENV=development next dev",
-    "build": "next build",
+    "build": "cross-env APP_ENV=production npm run env-copy && next build",
     "start": "next start",
     "lint": "next lint"
   },
