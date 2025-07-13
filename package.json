@@ -2,8 +2,10 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "env-copy": "node ./env-copy.js",
+    "dev": "cross-env APP_ENV=development npm run env-copy && cross-env APP_ENV=development next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -19,6 +21,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
+    "cross-env": "^7.0.3",
     "eslint-config-next": "15.3.5",
     "@eslint/eslintrc": "^3"
   }
