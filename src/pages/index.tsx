@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import { useEffect, useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +15,24 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('http://127.0.0.1:8000/');
+        const data = await res.json();
+        setMessage(data.message);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchData();
+  }, []);
+  
+  console.log(message)
+
   return (
     <>
       <Head>
