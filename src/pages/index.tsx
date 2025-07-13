@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(process.env.NEXT_PUBLIC_URL || '');
+        const res = await fetch("https://fastapi-app-95326348153.asia-northeast1.run.app");
         const data = await res.json();
         setMessage(data.message);
       } catch (err) {
